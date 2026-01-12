@@ -61,7 +61,7 @@ flowchart TD
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | [Chatbot em Streamlit] |
+| Interface | [Chatbot em Streamlit][https://streamlit.io/] |
 | LLM | [ex: GPT-4 via API ou OLAMA (LOCAL)] |
 | Base de Conhecimento | [JSON/CSV com dados do cliente] |
 | Validação | [ex: Checagem de alucinações] |
