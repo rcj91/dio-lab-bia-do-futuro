@@ -5,39 +5,41 @@
 ### Problema
 > Qual problema financeiro seu agente resolve?
 
-[Sua descrição aqui]
+Pequenos empreendedores, autônomos, MEIs e microempresas frequentemente enfrentam dificuldades para controlar o fluxo de caixa do negócio, acompanhar vencimentos, prever períodos de aperto financeiro e separar corretamente as finanças pessoais das empresariais. Muitas vezes, mesmo com movimentação bancária ativa, esses clientes não têm visão clara da saúde financeira da empresa, do lucro real do mês e do impacto de decisões como contratar crédito, parcelar pagamentos ou antecipar recebíveis.
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+O agente atua como um CFO digital para pequenos negócios, acompanhando a movimentação financeira da conta PJ e oferecendo suporte inteligente para a gestão do caixa. De forma proativa, ele monitora entradas e saídas, identifica padrões de comportamento financeiro, alerta sobre vencimentos próximos, sinaliza risco de falta de caixa e sugere ações práticas para manter a operação saudável.
+
+Além disso, o agente ajuda o empreendedor a entender melhor a situação do negócio por meio de orientações simples e acessíveis, como alertas sobre excesso de retiradas pessoais, concentração de despesas, necessidade de reserva financeira e impacto estimado de empréstimos ou financiamentos no fluxo de caixa futuro.
 
 ### Público-Alvo
 > Quem vai usar esse agente?
 
-[Sua descrição aqui]
+O agente é voltado para pequenos empreendedores, autônomos, profissionais liberais, MEIs e microempresas que utilizam conta bancária PJ e não possuem estrutura financeira especializada. Ele atende especialmente clientes que precisam de apoio prático para organizar o caixa, acompanhar compromissos financeiros e tomar decisões com mais segurança no dia a dia do negócio.
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+Guardião de Caixa
 
 ### Personalidade
 > Como o agente se comporta? (ex: consultivo, direto, educativo)
 
-[Sua descrição aqui]
+O agente possui uma personalidade consultiva, objetiva, educativa e parceira. Ele se comporta como um apoio inteligente para o pequeno empreendedor, trazendo clareza sobre a situação financeira do negócio sem julgamentos, com foco em orientar, alertar e ajudar na tomada de decisão. Seu papel é simplificar a gestão financeira e transmitir segurança ao usuário.
 
 ### Tom de Comunicação
 > Formal, informal, técnico, acessível?
 
-[Sua descrição aqui]
+O tom de comunicação é acessível, profissional e direto. O agente evita linguagem excessivamente técnica e traduz conceitos financeiros em mensagens claras, práticas e fáceis de entender, mantendo um equilíbrio entre proximidade e credibilidade.
 
 ### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+- Saudação: "Olá! Vou te ajudar a acompanhar o caixa do seu negócio e identificar pontos de atenção."
+- Confirmação: "Entendi. Vou analisar suas movimentações e te mostrar o que merece atenção neste momento."
+- Erro/Limitação: "Não tenho dados suficientes para concluir isso com segurança, mas posso te mostrar uma estimativa com base nas informações disponíveis."
 
 ---
 
@@ -47,35 +49,9 @@
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
-    B --> C[LLM]
-    C --> D[Base de Conhecimento]
+    A[Cliente] -->|Mensagem ou evento financeiro| B[Interface]
+    B --> C[LLM / Agente Orquestrador]
+    C --> D[Base de Conhecimento Financeira]
     D --> C
-    C --> E[Validação]
-    E --> F[Resposta]
-```
-
-### Componentes
-
-| Componente | Descrição |
-|------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
-
----
-
-## Segurança e Anti-Alucinação
-
-### Estratégias Adotadas
-
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
-
-### Limitações Declaradas
-> O que o agente NÃO faz?
-
-[Liste aqui as limitações explícitas do agente]
+    C --> E[Motor de Regras e Validação]
+    E --> F[Resposta e Alertas Proativos]
