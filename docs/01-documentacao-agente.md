@@ -54,4 +54,30 @@ flowchart TD
     C --> D[Base de Conhecimento Financeira]
     D --> C
     C --> E[Motor de Regras e Validação]
-    E --> F[Resposta e Alertas Proativos]
+```
+### Componentes
+
+| Componente | Descrição |
+|------------|-----------|
+| Interface | Chatbot em Streamlit para interação com o cliente e exibição das análises do agente |
+| LLM | Modelo de linguagem responsável por interpretar perguntas, analisar o contexto financeiro e gerar respostas em linguagem natural |
+| Base de Conhecimento | Arquivos JSON e CSV mockados com dados de clientes PJ, contas, transações, contas a pagar, contas a receber, regras de alerta e produtos bancários |
+| Validação | Camada de controle para garantir que o agente responda apenas com base nos dados disponíveis, reduza alucinações e respeite o escopo definido |
+
+---
+
+## Segurança e Anti-Alucinação
+
+### Estratégias Adotadas
+
+- [x] Agente só responde com base nos dados fornecidos ou simulados no sistema
+- [x] Respostas apresentam contexto e justificativa com base nas informações disponíveis
+- [x] Quando não sabe ou não possui dados suficientes, admite a limitação e redireciona a resposta
+- [x] Não faz recomendações fora do escopo, nem aprova crédito ou decisões sensíveis automaticamente
+- [x] Utiliza regras de negócio para validar alertas críticos antes de apresentar conclusões
+- [x] Mantém o escopo restrito à gestão de caixa e apoio à decisão financeira do pequeno negócio
+
+### Limitações Declaradas
+> O que o agente NÃO faz?
+
+O agente não substitui contador, consultor financeiro, gerente bancário ou especialista tributário. Ele não aprova empréstimos, não executa transações, não realiza cálculos fiscais oficiais, não toma decisões em nome do cliente e não garante previsões exatas de faturamento ou saldo futuro. Além disso, o agente não responde com base em informações ausentes na base de conhecimento, não acessa dados de outros clientes e não trata recomendações como certezas quando houver apenas estimativas.
