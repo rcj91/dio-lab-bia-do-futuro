@@ -38,6 +38,48 @@ Os arquivos JSON e CSV são carregados no início da execução da aplicação p
 
 Durante a execução, o agente consulta essas bases para montar o contexto do cliente e responder com base em dados concretos do cenário simulado.
 
+Código para leitura das bases 
+
+```python
+import json
+import pandas as pd
+
+
+
+#===============CARREGA DADOS=====================
+transacoes_pj = pd.read_csv("data/transacoes_pj.csv")
+contas_pagar = pd.read_csv("data/contas_pagar.csv")
+contas_receber = pd.read_csv("data/contas_receber.csv")
+historico_atendimento = pd.read_csv("data/historico_atendimento.csv")
+historico_interacoes = pd.read_csv("data/historico_interacoes.csv")
+transacoes = pd.read_csv("data/transacoes.csv")
+
+with open("data/clientes_pj.json", "r", encoding="utf-8") as f:
+    clientes_pj = json.load(f)
+
+with open("data/contas_pj.json", "r", encoding="utf-8") as f:
+    contas_pj = json.load(f)
+
+with open("data/indicadores_caixa.json", "r", encoding="utf-8") as f:
+    indicadores_caixa = json.load(f)
+
+with open("data/metas_financeiras.json", "r", encoding="utf-8") as f:
+    metas_financeiras = json.load(f)
+
+with open("data/perfil_investidor.json", "r", encoding="utf-8") as f:
+    perfil_investidor = json.load(f)
+
+with open("data/produtos_bancarios_pj.json", "r", encoding="utf-8") as f:
+    produtos_bancarios_pj = json.load(f)
+
+with open("data/produtos_financeiros.json", "r", encoding="utf-8") as f:
+    produtos_financeiros = json.load(f)
+
+with open("data/regras_alertas.json", "r", encoding="utf-8") as f:
+    regras_alertas = json.load(f)
+```
+
+
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
