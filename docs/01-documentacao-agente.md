@@ -49,20 +49,28 @@ O tom de comunicação é acessível, profissional e direto. O agente evita ling
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem ou evento financeiro| B[Interface]
-    B --> C[LLM / Agente Orquestrador]
-    C --> D[Base de Conhecimento Financeira]
-    D --> C
-    C --> E[Motor de Regras e Validação]
+    A[Usuário] --> B[Interface Streamlit]
+    B --> C[Seleção do Cliente]
+    C --> D[Leitura da Base Mockada]
+    D --> E[Montagem de Contexto]
+    B --> F[Histórico da Conversa]
+    E --> G[Prompt Final]
+    F --> G
+    G --> H[Ollama / LLM]
+    H --> I[Resposta do Agente]
+    I --> B
 ```
 ### Componentes
 
-| Componente | Descrição |
-|------------|-----------|
-| Interface | Chatbot em Streamlit para interação com o cliente e exibição das análises do agente |
-| LLM | Modelo de linguagem responsável por interpretar perguntas, analisar o contexto financeiro e gerar respostas em linguagem natural |
-| Base de Conhecimento | Arquivos JSON e CSV mockados com dados de clientes PJ, contas, transações, contas a pagar, contas a receber, regras de alerta e produtos bancários |
-| Validação | Camada de controle para garantir que o agente responda apenas com base nos dados disponíveis, reduza alucinações e respeite o escopo definido |
+| Categoria | Ferramenta |
+|-----------|------------|
+| Interface | Streamlit |
+| LLM local | Ollama |
+| Linguagem | Python |
+| Manipulação de dados | Pandas |
+| Base de conhecimento | JSON + CSV |
+| Integração HTTP | Requests |
+
 
 ---
 
