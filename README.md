@@ -1,149 +1,99 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 💼 Guardião de Caixa
 
-## Contexto
+O **Guardião de Caixa** é um agente financeiro inteligente com IA generativa desenvolvido para atuar como um CFO digital consultivo para pequenos negócios, MEIs e autônomos. Ele ajuda a analisar a saúde financeira do negócio, monitorar entradas e saídas e antecipar riscos de caixa.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+## 🎯 O Problema
+Pequenos empreendedores frequentemente enfrentam dificuldades para controlar o fluxo de caixa, acompanhar vencimentos, prever períodos de aperto financeiro e separar as finanças pessoais das empresariais. Muitas vezes, tomam decisões importantes sem ter uma visão clara da real saúde financeira do negócio.
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+## 💡 A Solução
+Um agente integrado construído com LLM e interface interativa que funciona como um conselheiro financeiro digital. O Guardião de Caixa analisa os dados do cliente (saldo, transações, contas a pagar e receber, indicadores) e fornece orientações práticas, preventivas e explicativas, baseadas **exclusivamente** na base de dados (arquivos CSV e JSON).
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+## 🚀 Funcionalidades Principais
+- **Análise Contextualizada:** Cruza dados de saldo atual, contas a pagar, contas a receber e metas financeiras.
+- **Alertas Proativos:** Identifica riscos como caixa abaixo da reserva mínima, vencimentos próximos e alta taxa de retirada pessoal.
+- **Chat Interativo com Memória:** Mantém o histórico da conversa para garantir que perguntas sequenciais (ex: "Então posso tirar R$ 500?") tenham continuidade lógica.
+- **Simulação Multicliente:** Suporte para múltiplos perfis na base de dados (ex: *Mariana Souza Studio*, *Oficina Rota Certa*), demonstrando análises personalizadas.
 
----
+## 🛠️ Tecnologias Utilizadas
+- **Linguagem Principal:** Python 3
+- **Interface Gráfica:** Streamlit
+- **Manipulação de Dados:** Pandas
+- **Motor de Inteligência Artificial:** Ollama (LLM local, padrão no código: `gpt-oss:120b-cloud`, customizável)
+- **Integração:** `requests` para chamadas na API do Ollama.
 
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
+## 🏗️ Arquitetura do Agente
 
 ```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+```text?code_stdout&code_event_index=6
+README.md criado com sucesso.
+
+```mermaid
+flowchart TD
+    A[Usuário] --> B[Interface Streamlit]
+    B --> C[Seleção do Cliente]
+    C --> D[Leitura da Base Mockada]
+    D --> E[Montagem de Contexto]
+    B --> F[Histórico da Conversa]
+    E --> G[Prompt Final]
+    F --> G
+    G --> H[Ollama / LLM]
+    H --> I[Resposta do Agente]
+    I --> B
 ```
 
----
+## 📁 Estrutura do Projeto
 
-## Dicas Finais
+* `src/`: Contém o código principal do agente.
+  * `app.py`: Aplicação Streamlit, lógica de negócio, extração do contexto via Pandas e integração com a IA.
+* `data/`: Base de conhecimento simulada contendo bases JSON e CSV (clientes, transações, contas a pagar/receber, histórico de interações, etc).
+* `docs/`: Documentações de concepção do agente.
+  * `01-documentacao-agente.md`: Arquitetura, persona e diretrizes.
+  * `05-pitch.md`: Roteiro de apresentação da solução.
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+## ⚙️ Como Executar o Projeto
+
+1. **Pré-requisitos:**
+   * Python instalado.
+   * [Ollama](https://ollama.com/) instalado e executando na sua máquina.
+   * Certifique-se de ter feito o pull do modelo que for utilizar (ex: `ollama run llama3`, depois altere a variável `MODELO` no arquivo `app.py` caso necessário).
+
+2. **Instalação das dependências:**
+   ```bash
+   pip install pandas streamlit requests
+   ```
+
+3. **Iniciando a aplicação:**
+   Navegue até a raiz do projeto e execute:
+   ```bash
+   streamlit run src/app.py
+   ```
+
+## 🛡️ Segurança e Limitações (Anti-Alucinação)
+O Guardião de Caixa segue diretrizes estritas (System Prompt) para **não alucinar**. Suas respostas são inteiramente embasadas nos dados consolidados do cliente. Ele:
+- **Não** inventa saldos, movimentações ou produtos inexistentes.
+- **Não** toma decisões de aprovação de crédito.
+- **Não** substitui a atuação de contadores oficiais ou advogados tributários.
+- Se os dados forem insuficientes para responder a uma pergunta, ele é treinado para admitir explicitamente a falta de informações e limitar-se a indicar estimativas.
+"""
+
+with open("README.md", "w", encoding="utf-8") as f:
+    f.write(markdown_content)
+    
+print("README.md criado com sucesso.")
+
+```
+O seu arquivo Markdown com o README completo está pronto:
+[file-tag: code-generated-file-0-1776602162998690691]
+
+Eu analisei os arquivos do seu repositório, incluindo o `src/app.py`, o modelo de documentação (`01-documentacao-agente.md`) e o pitch (`05-pitch.md`), para gerar um `README.md` que descreve precisamente o **Guardião de Caixa**.
+
+O arquivo gerado reflete de forma fidedigna a sua solução e inclui:
+* **Problema e Solução**: Uma introdução clara e comercial sobre o projeto (atuando como CFO digital para PJs).
+* **Funcionalidades**: Detalhamento da análise contextual, alertas proativos e o chat interativo.
+* **Tecnologias**: Listagem de Python, Streamlit, Pandas e a integração com Ollama.
+* **Arquitetura Visual**: Inclusão do diagrama de fluxo (`mermaid`) utilizado na sua documentação original.
+* **Estrutura de Diretórios**: Explicação sobre o que fazem as pastas `src/`, `data/` e `docs/`.
+* **Como Executar**: O passo a passo (instalação de bibliotecas como pandas e streamlit, além da chamada do script principal).
+* **Segurança**: As travas de "Anti-Alucinação" estipuladas no contexto do seu agente (não inventar saldos, não substituir contadores, etc.).
+
+Sinta-se livre para baixar o arquivo gerado e colocar diretamente no branch principal (`main`) do seu repositório! Se precisar de mais algum ajuste na escrita, é só avisar.
