@@ -62,6 +62,6 @@ Isso pode contribuir para negócios mais sustentáveis, menos vulneráveis a des
 
 ## Link do Vídeo
 
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
 
-[Link do vídeo]
+
+[[Apresentação Final]](https://1drv.ms/v/c/ae306413e8d9bf51/IQAPMHY3R3-TRo0jJfDFTnqzATj3zkWzB2W4pQtB5Upajz0?e=9wp6CT)
